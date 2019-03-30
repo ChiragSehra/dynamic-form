@@ -1,0 +1,21 @@
+<div class='container' style="display: grid; position: relative; grid-template-columns: auto auto; grid-auto-flow:inherit">
+  <div class="form-container-one">
+  <form (ngSubmit)="onSubmit()" [formGroup]="form"  style="display: grid;position: relative;grid-template-columns: auto auto;">
+
+    <div *ngFor="let question of questions" class="form-row">
+      <app-question [question]="question" [form]="form"></app-question>
+    </div>
+
+    <div class="form-row">
+      <button type="submit" [disabled]="!form.valid">Save</button>
+    </div>
+  </form>
+</div>
+
+  <div class="form-row">
+    <object data='../assets/TitanFillableForm.pdf' type="application/pdf" width="100%" height="100%"  style="display: grid;position: relative;  grid-template-columns: auto auto;align-items: flex-end;">
+    <!-- <strong>Saved the following values</strong><br>{{payLoad}} -->
+    </object>
+    <button (click)= pdfConversion()>PDF Conversion</button>
+  </div>
+</div>
